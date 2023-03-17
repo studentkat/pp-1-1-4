@@ -62,6 +62,7 @@ public class UserDaoHibernateImpl implements UserDao {
             System.out.println("Челик " + name + " " + lastName + " добавлен");
             transaction.commit();
         } catch (Exception e) {
+            transaction.rollback();
             e.printStackTrace();
         }
     }
@@ -76,6 +77,7 @@ public class UserDaoHibernateImpl implements UserDao {
             System.out.println("Челик с ID= " + id +" удален!");
             transaction.commit();
         } catch (Exception e) {
+            transaction.rollback();
             e.printStackTrace();
         }
     }
@@ -95,6 +97,7 @@ public class UserDaoHibernateImpl implements UserDao {
             users.forEach(System.out::println);
             transaction.commit();
         } catch (Exception e) {
+            transaction.rollback();
             e.printStackTrace();
         }
 
@@ -111,6 +114,7 @@ public class UserDaoHibernateImpl implements UserDao {
             System.out.println("Удалены все строки в таблице users!");
             transaction.commit();
         } catch (Exception e) {
+            transaction.rollback();
             e.printStackTrace();
         }
     }
